@@ -23,7 +23,7 @@ namespace SendingEmails.Services
          * Body+Attachments
          */
 
-        public async Task SendEmailAsync(string mailTo, string subject, string body, IList<IFormFile>? attachments)
+        public async Task SendEmailAsync(string mailTo, string subject, string body, IList<IFormFile>? attachments =null)
         {
             var email = new MimeMessage
             {
