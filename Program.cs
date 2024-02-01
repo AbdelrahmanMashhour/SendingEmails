@@ -1,3 +1,4 @@
+using SendingEmails.Services;
 using SendingEmails.Settings;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,7 +10,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.Configure<MailSettings>(builder.Configuration.GetSection("MailSettings"));
-
+builder.Services.AddTransient<IMailingService,MailingService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
